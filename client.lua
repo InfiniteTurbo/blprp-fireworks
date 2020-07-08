@@ -1,6 +1,3 @@
-
-ESX = nil
-
 local box = nil
 local animlib = 'anim@mp_fireworks'
 
