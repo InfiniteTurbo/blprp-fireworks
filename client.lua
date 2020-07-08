@@ -1,6 +1,21 @@
 local box = nil
 local animlib = 'anim@mp_fireworks'
 
+function msg(string)
+    SetNotificationTextEntry("STRING")
+    AddTextComponentString(string)
+    DrawNotification(false, true)
+end
+
+RegisterCommand("sf", function()
+	TriggerServerEvent('fireworks')
+end)
+
+RegisterNetEvent('bz-noperms')
+AddEventHandler('bz-noperms', function()
+msg("~r~Sorry! You don't have permission to do that.")
+end)
+
 
 RegisterNetEvent('frobski-fireworks:start')
 AddEventHandler('frobski-fireworks:start', function()
