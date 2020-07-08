@@ -1,11 +1,8 @@
-ESX = nil
-
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-
-ESX.RegisterUsableItem('firebox', function(source)
-	local xPlayer = ESX.GetPlayerFromId(source)
-
-        xPlayer.removeInventoryItem('firebox', 1)
-    
-	TriggerClientEvent('frobski-fireworks:start', source)
+RegisterServerEvent('fireworks')
+AddEventHandler('fireworks', function()
+    if IsPlayerAceAllowed(source, "bz.fwcmds") then
+        TriggerClientEvent('frobski-fireworks:start', source)
+    else
+        TriggerClientEvent('bz-noperms', source)
+    end
 end)
