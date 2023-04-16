@@ -7,13 +7,11 @@ function msg(string)
     DrawNotification(false, true)
 end
 
-RegisterCommand("sf", function()
+RegisterCommand("fireworks", function()
 	TriggerServerEvent('fireworks')
 end)
-
-RegisterNetEvent('bz-noperms')
-AddEventHandler('bz-noperms', function()
-msg("~r~Sorry! You don't have permission to do that.")
+Citizen.CreateThread(function()
+    TriggerEvent('chat:addSuggestion', '/fireworks', 'Deploys a fireworks box.')
 end)
 
 
